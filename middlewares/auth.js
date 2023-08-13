@@ -3,7 +3,7 @@ import UnauthorizedError from '../utils/errors/UnauthorizedError.js';
 import { SECRET_KEY } from '../utils/config.js';
 
 const auth = (req, res, next) => {
-  const token = req.headers.jwt;
+  const token = req.cookies.jwt;
   let payload;
 
   if (!token) {
