@@ -1,11 +1,4 @@
 import { Joi, celebrate } from 'celebrate';
-// import { REGEX_URL } from '../variables.js';
-
-// const validateUserId = celebrate({
-//   params: Joi.object().keys({
-//     id: Joi.string().required().hex().length(24),
-//   }),
-// });
 
 const validateUser = celebrate({
   body: Joi.object().keys({

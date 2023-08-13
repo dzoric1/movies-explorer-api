@@ -8,7 +8,6 @@ import { errors } from 'celebrate';
 
 import router from './routes/index.js';
 import { requestLogger, errorLogger } from './middlewares/logger.js';
-// import auth from './middlewares/auth.js';
 import errorMiddleware from './middlewares/errors.js';
 import { corsOptions, limiterSettings } from './utils/variables.js';
 import { PORT, DB_URL } from './utils/config.js';

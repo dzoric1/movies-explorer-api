@@ -1,10 +1,18 @@
 import express from 'express';
-// import {} from '../controllers/movies.js';
+import {
+  saveMovieToFavorites,
+  getFavoritesMovies,
+  deleteMovieFromFavorites,
+} from '../controllers/movies.js';
+import {
+  validateMovie,
+  validateDeleteMovie,
+} from '../utils/validators/movieValidator.js';
 
 const moviesRouter = express.Router();
 
-// moviesRouter.get('/', getMovies);
-// moviesRouter.post('/', addMovie);
-// moviesRouter.delete('/:_id', deleteMovie);
+moviesRouter.get('/', getFavoritesMovies);
+moviesRouter.post('/', validateMovie, saveMovieToFavorites);
+moviesRouter.delete('/:_id', validateDeleteMovie, deleteMovieFromFavorites);
 
 export default moviesRouter;
