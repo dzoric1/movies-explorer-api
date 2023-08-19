@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const { PORT = 3000 } = process.env;
-const { DB_URL = 'mongodb://127.0.0.1:27017/moviesdb' } = process.env;
+const { DB_URL = 'mongodb://127.0.0.1:27017/bitfilmsdb' } = process.env;
 const { NODE_ENV = 'development' } = process.env;
 const { JWT_SECRET_KEY } = process.env;
 

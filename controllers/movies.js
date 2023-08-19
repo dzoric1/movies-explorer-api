@@ -33,20 +33,20 @@ const getFavoritesMovies = (req, res, next) => {
 };
 
 const deleteMovieFromFavorites = (req, res, next) => {
-  const { movieId } = req.params;
+  const { _id: movieId } = req.params;
 
   Movie.findById(movieId)
     .orFail(() => {
-      throw new NotFoundError('фильм не найден');
+      throw new NotFoundError('Фильм не найден');
     })
     .then((movie) => {
       if (movie.owner.toString() !== req.user._id) {
-        throw new ForbiddenError('Удалять можно только свои карточки!');
+        throw new ForbiddenError('Удалять можно только свои фильмы!');
       }
 
       Movie.findByIdAndRemove(movieId)
         .then(() => {
-          res.send({ message: 'Карточка удалена' });
+          res.send({ message: 'Фильм удален' });
         })
         .catch((error) => next(error));
     })

@@ -83,11 +83,9 @@ const updateUser = (req, res, next) => {
   )
     .then((updatedUser) => res.send(updatedUser))
     .catch((error) => {
-      if (error.name === 'ValidationError') {
-        next(new BadRequestError('Переданные данные не валидны'));
-      } else {
-        next(error);
-      }
+      if (error.name === 'ValidationError') return next(new BadRequestError('Переданные данные не валидны'));
+      if (error.code === 11000) return next(new ConflictError('Данный email занят'));
+      next(error);
     });
 };
 
