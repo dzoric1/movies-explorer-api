@@ -50,11 +50,7 @@ const login = (req, res, next) => {
 };
 
 const signout = (req, res) => {
-  res.clearCookie('jwt', {
-    maxAge: 24 * 3600000,
-    sameSite: true,
-    httpOnly: true,
-  });
+  res.clearCookie('jwt');
   res.send({ message: 'Выход выполнен успешно' });
 };
 
